@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services – The Moropreneur, Inc.</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+  <style>
+    :root {
+      --tmi-green: #1a5f23;
+      --tmi-gold: #d4af37;
+    }
+    .text-tmi-green { color: var(--tmi-green); }
+    .bg-tmi-green { background-color: var(--tmi-green); }
+    .border-tmi-green { border-color: var(--tmi-green); }
+    .text-tmi-gold { color: var(--tmi-gold); }
+    .bg-tmi-gold\/20 { background-color: color-mix(in srgb, var(--tmi-gold) 20%, white); }
+    .hover\:bg-tmi-gold:hover { background-color: var(--tmi-gold); }
+    .hover\:border-tmi-gold:hover { border-color: var(--tmi-gold); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <div class="max-w-7xl mx-auto pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-black text-tmi-green mb-4">ANGAT DAPAT Portfolio</h2>
+      <p class="text-sm text-gray-400 max-w-xl mx-auto">
+        Innovative people-led solutions to optimize resources and promote social cohesion, economic empowerment, and peace in Bangsamoro and conflict-affected communities.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+      <!-- 1. MHPSS Support -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors">
+            <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">MHPSS Support</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Mental Health and Psychosocial Support (MHPSS) integrated into peacebuilding, normalization, and post-crisis recovery for ex-combatants, GBV survivors, and conflict-affected families.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Digitalization -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors">
+            <i data-lucide="tablet" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Digitalization</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Bridging the technology gap through digital literacy training, e-commerce enablement, and tech-integrated social enterprises for marginalized Bangsamoro youth and women.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Climate & Circular Economy -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors">
+            <i data-lucide="leaf" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Climate & Circular Economy</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Community-based climate adaptation, waste-to-value initiatives, and sustainable agriculture models that build resilience and reduce environmental vulnerability.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Halal Economy & Tourism -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors">
+            <i data-lucide="star" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Halal Economy & Tourism</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Development of halal-compliant products, cultural tourism routes, and Bangsamoro culinary branding—co-created with local entrepreneurs and aligned with Islamic values.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Peacebuilding & P/CVE -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors">
+            <i data-lucide="handshake" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Peacebuilding & P/CVE</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Preventing and countering violent extremism through interfaith dialogue, youth engagement, community peace spaces, and reintegration support for former combatants.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Research & Policy -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors">
+            <i data-lucide="file-text" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Research & Policy</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Evidence-based studies, gender analyses, and policy drafting for national and international partners—including UNDP, EU, WFP, and Bangsamoro ministries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-16">
+      <p class="text-gray-600 mb-4">Explore partnership or request technical services tailored to your community or organization.</p>
+      <a href="mailto:executive@themoropreneur.com" class="inline-block bg-tmi-green text-white px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition">
+        Contact Our Team
+      </a>
+      <p class="mt-3 text-sm text-gray-500">Mr. Selahuddin Yu Hashim | +63 927 172 0441</p>
+    </div>
+  </div>
+
+</body>
+</html>
