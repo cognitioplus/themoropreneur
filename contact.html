@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – The Moropreneur, Inc.</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+  <style>
+    :root {
+      --tmi-green: #1a5f23;
+      --tmi-gold: #d4af37;
+    }
+    .text-tmi-green { color: var(--tmi-green); }
+    .bg-tmi-green { background-color: var(--tmi-green); }
+    .border-tmi-green { border-color: var(--tmi-green); }
+    .text-tmi-gold { color: var(--tmi-gold); }
+    .bg-tmi-gold\/20 { background-color: color-mix(in srgb, var(--tmi-gold) 20%, white); }
+    .hover\:bg-tmi-gold:hover { background-color: var(--tmi-gold); }
+    .hover\:border-tmi-gold:hover { border-color: var(--tmi-gold); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <div class="max-w-7xl mx-auto pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+    <!-- Hero -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-black text-tmi-green mb-4">Contact Us</h1>
+      <p class="text-sm text-gray-400 max-w-2xl mx-auto">
+        Reach out to learn more about our programs, partnerships, or how we can support your community.
+      </p>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
+      <!-- Office Location -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors">
+            <i data-lucide="map-pin" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Head Office</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              4th Floor, Bonifacio Street<br>
+              Cotabato City, Philippines
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors">
+            <i data-lucide="phone" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Call or WhatsApp</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              <a href="tel:+639271720441" class="hover:underline">+63 927 172 0441</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors">
+            <i data-lucide="mail" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">General Inquiries</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              <a href="mailto:themoropreneur@gmail.com" class="hover:underline">themoropreneur@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive Director -->
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors">
+            <i data-lucide="user" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Executive Director</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Mr. Selahuddin Yu Hashim<br>
+              <a href="mailto:executive@themoropreneur.com" class="hover:underline">executive@themoropreneur.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission Reminder -->
+    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 text-center mb-12">
+      <p class="text-tmi-green italic text-sm md:text-base max-w-3xl mx-auto">
+        “Empowering the Bangsamoro, Indigenous Peoples, and other marginalized communities through co-creating innovative solutions toward sustainable peace and development.”
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-gray-600 mb-4">We welcome collaboration requests, partnership proposals, and community referrals.</p>
+      <a href="mailto:executive@themoropreneur.com" class="inline-block bg-tmi-green text-white px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition">
+        Send a Message
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
