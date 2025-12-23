@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Moropreneur, Inc. | Empowering Mindanao</title>
+    
+    <!-- SEO Optimized Meta Tags -->
+    <title>The Moropreneur, Inc. | Empowering Mindanao Communities</title>
+    <meta name="description" content="The Moropreneur, Inc. is a social innovation hub dedicated to resilience, peace-building, women and youth empowerment, and social entrepreneurship across the Bangsamoro region in Mindanao.">
+    <meta name="keywords" content="Moropreneur, Mindanao, Bangsamoro, Social Innovation, Peace-building, Social Entrepreneurship, Agricultural Resilience, Youth Empowerment, Halal Economy, BARMM">
+    <meta name="author" content="The Moropreneur, Inc.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://themoropreneur.com/">
+    <meta property="og:title" content="The Moropreneur, Inc. | Empowering Mindanao Communities">
+    <meta property="og:description" content="A social innovation hub dedicated to resilience, peace-building, and social entrepreneurship across Mindanao.">
+    <meta property="og:image" content="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108">
+
+    <!-- Official Icon -->
+    <link rel="icon" type="image/png" href="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108">
+    <link rel="apple-touch-icon" href="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108">
     
     <!-- Core Assets -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,6 +37,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-tap-highlight-color: transparent;
             background-color: #F8FAF9;
+            color: #1e293b;
         }
 
         .tmi-gradient { background: linear-gradient(135deg, var(--tmi-green) 0%, var(--tmi-light-green) 100%); }
@@ -28,7 +45,7 @@
         .bg-tmi-green { background-color: var(--tmi-green); }
         .bg-tmi-gold { background-color: var(--tmi-gold); }
 
-        /* Smooth Page Handling */
+        /* Mobile-First Page Handling */
         .page-container {
             display: grid;
             grid-template-areas: "content";
@@ -37,8 +54,8 @@
             grid-area: content;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(15px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(10px);
+            transition: all 0.3s ease-out;
         }
         .page.active {
             opacity: 1;
@@ -48,49 +65,45 @@
 
         /* Glass Effects */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: saturate(180%) blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        /* Circular Logo Styling */
         .logo-circle {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 9999px;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border: 2px solid white;
             flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .hero-logo-circle {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
             border-radius: 9999px;
             background: white;
-            padding: 8px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 6px;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Modern Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #0b4a2933; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #0b4a2966; }
-
+        /* Responsive adjustments */
         @media (max-width: 640px) {
-            .hero-title { font-size: 2.5rem; line-height: 1.1; }
-            .hero-logo-circle { width: 120px; height: 120px; }
+            .hero-title { font-size: 2.25rem; line-height: 1.1; }
+            .hero-logo-circle { width: 110px; height: 110px; }
+            .section-title { font-size: 1.875rem; }
         }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: var(--tmi-green); border-radius: 10px; }
     </style>
 
     <!-- PWA Manifest -->
@@ -100,32 +113,34 @@
 
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-[100] glass-nav">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
                 <div class="logo-circle">
                     <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=P67j4P733M8Q7kNvwFHptKR&_nc_oc=AdlDasD95JvyeXxVDflMHtsM2KbsW_CZ7wwTAPCkitFjpVjHu1W0SRd7WRqGMpyqFejF5YaXzm-jt2NYc4nZztB4&_nc_zt=24&_nc_ht=scontent.fceb2-1.fna&_nc_gid=OF6SrWFIk0zBI6xY9wasBA&oh=00_Aflu1_PAElp-SjdflhwHao3ERN7A5h4yZuceP2TEVEsmvg&oe=69502C79" 
-                         alt="TMI" class="w-full h-full object-cover">
+                         alt="The Moropreneur, Inc. logo" class="w-full h-full object-cover">
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-sm md:text-lg font-extrabold tracking-tighter text-tmi-green leading-none">The Moropreneur, Inc.</span>
-                    <span class="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-emerald-700 opacity-70">Humanitarian & Development</span>
+                    <span class="text-xs md:text-lg font-extrabold tracking-tighter text-tmi-green leading-none">The Moropreneur, Inc.</span>
+                    <span class="text-[7px] md:text-[9px] font-bold uppercase tracking-widest text-emerald-700 opacity-70">Empowering Mindanao Communities</span>
                 </div>
             </div>
 
             <!-- Desktop Nav -->
-            <div class="hidden lg:flex items-center space-x-10">
-                <div class="flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
-                    <button onclick="navigateTo('home')" class="nav-link text-tmi-green hover:text-tmi-green transition-colors">Home</button>
-                    <button onclick="navigateTo('mandate')" class="nav-link hover:text-tmi-green transition-colors">Mandate</button>
-                    <button onclick="navigateTo('projects')" class="nav-link hover:text-tmi-green transition-colors">Projects</button>
-                    <button onclick="navigateTo('connect')" class="nav-link hover:text-tmi-green transition-colors">Connect</button>
+            <div class="hidden lg:flex items-center space-x-8">
+                <div class="flex space-x-6 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    <button onclick="navigateTo('home')" class="nav-link text-tmi-green">Home</button>
+                    <button onclick="navigateTo('mandate')" class="nav-link">Mandate</button>
+                    <button onclick="navigateTo('projects')" class="nav-link">Innovation Hub</button>
+                    <button onclick="navigateTo('connect')" class="nav-link">Connect</button>
                 </div>
-                <button id="install-btn" class="hidden bg-tmi-green text-white text-[10px] font-black px-6 py-2.5 rounded-full hover:shadow-xl transition flex items-center gap-2">
-                    <i data-lucide="smartphone" class="w-3.5 h-3.5"></i> INSTALL APP
-                </button>
             </div>
 
-            <!-- Mobile Trigger -->
+            <!-- Install Trigger (Hidden by default, shown via JS) -->
+            <button id="install-btn" class="hidden bg-tmi-green text-white text-[9px] font-black px-4 py-2 rounded-full flex items-center gap-2">
+                <i data-lucide="download" class="w-3 h-3"></i> INSTALL
+            </button>
+
+            <!-- Mobile Menu Btn -->
             <button class="lg:hidden p-2 text-tmi-green" onclick="toggleMobileMenu()">
                 <i data-lucide="menu"></i>
             </button>
@@ -134,180 +149,186 @@
 
     <!-- Mobile Nav Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[150] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-300">
-        <button class="absolute top-8 right-8 text-tmi-green" onclick="toggleMobileMenu()">
+        <button class="absolute top-6 right-6 text-tmi-green" onclick="toggleMobileMenu()">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
-        <button onclick="navigateTo('home')" class="text-3xl font-black text-tmi-green">HOME</button>
-        <button onclick="navigateTo('mandate')" class="text-3xl font-black text-tmi-green">MANDATE</button>
-        <button onclick="navigateTo('projects')" class="text-3xl font-black text-tmi-green">PROJECTS</button>
-        <button onclick="navigateTo('connect')" class="text-3xl font-black text-tmi-green">CONNECT</button>
+        <button onclick="navigateTo('home')" class="text-2xl font-black text-tmi-green">HOME</button>
+        <button onclick="navigateTo('mandate')" class="text-2xl font-black text-tmi-green text-opacity-60">MANDATE</button>
+        <button onclick="navigateTo('projects')" class="text-2xl font-black text-tmi-green text-opacity-60">PROJECTS</button>
+        <button onclick="navigateTo('connect')" class="text-2xl font-black text-tmi-green text-opacity-60">CONNECT</button>
     </div>
 
     <!-- Main Container -->
-    <main class="page-container pt-20">
+    <main class="page-container pt-16 md:pt-20">
         
         <!-- HOME SECTION -->
-        <section id="home" class="page active px-6 pb-20">
-            <div class="max-w-7xl mx-auto pt-8">
-                <div class="tmi-gradient rounded-[3rem] p-8 md:p-20 text-white relative overflow-hidden shadow-2xl">
-                    <div class="relative z-10 flex flex-col lg:flex-row items-center gap-12">
+        <section id="home" class="page active px-4 md:px-6 pb-20">
+            <div class="max-w-7xl mx-auto pt-4 md:pt-8">
+                <!-- Hero Card -->
+                <div class="tmi-gradient rounded-[2rem] md:rounded-[3.5rem] p-6 md:p-20 text-white relative overflow-hidden shadow-2xl">
+                    <div class="relative z-10 flex flex-col lg:flex-row items-center gap-10">
                         <div class="flex-1 text-center lg:text-left">
-                            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-8">
+                            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-6">
                                 <span class="w-2 h-2 bg-tmi-gold rounded-full animate-pulse"></span>
-                                <span class="text-[10px] font-black uppercase tracking-widest">Social Innovation Hub</span>
+                                <span class="text-[9px] font-black uppercase tracking-widest">Social Innovation Hub</span>
                             </div>
-                            <h1 class="hero-title text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8">
+                            <h1 class="hero-title text-4xl md:text-7xl font-black tracking-tighter leading-[0.95] mb-6">
                                 Empowering <br><span class="text-tmi-gold italic font-serif">Mindanao</span> <br>Communities.
                             </h1>
-                            <p class="text-lg md:text-xl text-emerald-50/80 leading-relaxed font-light mb-10 max-w-xl mx-auto lg:mx-0">
-                                Driving inclusive economy, peace-building, and agricultural resilience through people-led innovation across Mindanao.
+                            <p class="text-base md:text-xl text-emerald-50/80 leading-relaxed font-light mb-8 max-w-xl mx-auto lg:mx-0">
+                                Dedicated to resilience, peace-building, women and youth empowerment, and social entrepreneurship across the Bangsamoro.
                             </p>
-                            <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                                <button onclick="navigateTo('projects')" class="bg-tmi-gold text-tmi-green font-black px-10 py-5 rounded-2xl shadow-xl hover:scale-105 transition-all text-sm uppercase tracking-widest">Explore Projects</button>
-                                <button onclick="navigateTo('mandate')" class="bg-white/10 border border-white/20 text-white font-bold px-10 py-5 rounded-2xl hover:bg-white/20 transition-all text-sm">Our Impact</button>
+                            <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+                                <button onclick="navigateTo('projects')" class="bg-tmi-gold text-tmi-green font-black px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-all text-xs uppercase tracking-widest">Innovation Hub</button>
+                                <button onclick="navigateTo('mandate')" class="bg-white/10 border border-white/20 text-white font-bold px-8 py-4 rounded-xl hover:bg-white/20 transition-all text-xs">Our Impact</button>
                             </div>
                         </div>
 
-                        <!-- HERO CIRCULAR LOGO -->
-                        <div class="lg:w-2/5 flex justify-center lg:justify-end">
-                            <div class="hero-logo-circle group hover:scale-105 transition-transform duration-500">
-                                <div class="w-full h-full rounded-full overflow-hidden bg-white shadow-inner">
+                        <!-- Hero Logo Container -->
+                        <div class="lg:w-1/3 flex justify-center">
+                            <div class="hero-logo-circle">
+                                <div class="w-full h-full rounded-full overflow-hidden bg-white">
                                     <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=P67j4P733M8Q7kNvwFHptKR&_nc_oc=AdlDasD95JvyeXxVDflMHtsM2KbsW_CZ7wwTAPCkitFjpVjHu1W0SRd7WRqGMpyqFejF5YaXzm-jt2NYc4nZztB4&_nc_zt=24&_nc_ht=scontent.fceb2-1.fna&_nc_gid=OF6SrWFIk0zBI6xY9wasBA&oh=00_Aflu1_PAElp-SjdflhwHao3ERN7A5h4yZuceP2TEVEsmvg&oe=69502C79" 
-                                         alt="The Moropreneur, Inc. Logo" class="w-full h-full object-cover">
+                                         alt="TMI Official Logo" class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Background Decor -->
-                    <div class="absolute -right-20 -bottom-20 w-[400px] h-[400px] bg-tmi-gold opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
+                    <!-- Decor -->
+                    <div class="absolute -right-16 -bottom-16 w-80 h-80 bg-tmi-gold/10 rounded-full blur-[80px] pointer-events-none"></div>
                 </div>
 
-                <!-- Strategic Pillars -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-                    <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all">
-                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="shield-check"></i></div>
-                        <h3 class="text-xl font-bold text-tmi-green mb-2">Peace-building</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Fostering social cohesion through Bridging Khalifah sessions and community-led peace spaces.</p>
+                <!-- Core Pillars Grid -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-8">
+                    <div class="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-sm">
+                        <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-4"><i data-lucide="shield"></i></div>
+                        <h3 class="text-sm md:text-xl font-black text-tmi-green mb-1">Peace-building</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500">Fostering social cohesion and Bridging Khalifah sessions.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all">
-                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="sprout"></i></div>
-                        <h3 class="text-xl font-bold text-tmi-green mb-2">Agri-Resilience</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Scaling group productivity through sustainable techniques and climate-smart operation planning.</p>
+                    <div class="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-sm">
+                        <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-4"><i data-lucide="users"></i></div>
+                        <h3 class="text-sm md:text-xl font-black text-tmi-green mb-1">Empowerment</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500">Advocating for Women & Youth leadership in development.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all">
-                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="zap"></i></div>
-                        <h3 class="text-xl font-bold text-tmi-green mb-2">Innovation</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Bridging technology gaps with people-led digital solutions and effective risk communication.</p>
+                    <div class="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-sm">
+                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4"><i data-lucide="trending-up"></i></div>
+                        <h3 class="text-sm md:text-xl font-black text-tmi-green mb-1">Social Entrep</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500">Building a Halal economic sector and inclusive markets.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all">
-                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="briefcase"></i></div>
-                        <h3 class="text-xl font-bold text-tmi-green mb-2">Social Entrep</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Empowering 34+ cooperatives into thriving enterprises within the Halal economic sector.</p>
+                    <div class="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-sm">
+                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-4"><i data-lucide="heart"></i></div>
+                        <h3 class="text-sm md:text-xl font-black text-tmi-green mb-1">Resilience</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500">Disaster-ready and self-sufficient Bangsamoro groups.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- MANDATE SECTION -->
-        <section id="mandate" class="page px-6 pb-20">
-            <div class="max-w-6xl mx-auto pt-16">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <section id="mandate" class="page px-4 md:px-6 pb-20">
+            <div class="max-w-6xl mx-auto pt-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-5xl font-black text-tmi-green leading-tight mb-8">Mandate &<br>Framework</h2>
-                        <p class="text-lg text-gray-600 mb-8 leading-relaxed italic">"Self-sufficient, empowered, disaster-ready, peaceful, and sustainable Bangsamoro communities."</p>
+                        <h2 class="text-4xl md:text-5xl font-black text-tmi-green leading-tight mb-6">Our Mission &<br>Framework</h2>
+                        <p class="text-base text-gray-600 mb-8 leading-relaxed">
+                            Established in 2015, The Moropreneur, Inc. co-creates self-sufficient communities through innovative people-led solutions. 
+                            Our <strong>ANGAT DAPAT</strong> framework integrates food security, digitalization, and the circular economy.
+                        </p>
                         
-                        <div class="space-y-6">
-                            <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 flex gap-4">
-                                <div class="w-10 h-10 bg-tmi-green rounded-full flex items-center justify-center text-white shrink-0"><i data-lucide="check" class="w-5 h-5"></i></div>
+                        <div class="space-y-4">
+                            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
+                                <div class="w-10 h-10 bg-tmi-green text-white rounded-full flex items-center justify-center shrink-0"><i data-lucide="award" class="w-5 h-5"></i></div>
                                 <div>
-                                    <h4 class="font-bold text-tmi-green">ANGAT DAPAT Framework</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Holistic approach to Food Security, Digitalization, MHPSS, and Circular Economy.</p>
+                                    <h4 class="font-bold text-tmi-green">Verified 'Low Risks' Status</h4>
+                                    <p class="text-[11px] text-gray-500">Validated by UN Women, UNDP, and Islamic Relief audits.</p>
                                 </div>
                             </div>
-                            <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 flex gap-4">
-                                <div class="w-10 h-10 bg-tmi-green rounded-full flex items-center justify-center text-white shrink-0"><i data-lucide="award" class="w-5 h-5"></i></div>
+                            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
+                                <div class="w-10 h-10 bg-tmi-gold text-tmi-green rounded-full flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5"></i></div>
                                 <div>
-                                    <h4 class="font-bold text-tmi-green">Low Risk Institution</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Verified 'Low Risks' status in external Audits by UN Women, UNDP, and Islamic Relief.</p>
+                                    <h4 class="font-bold text-tmi-green">20,000+ Scholars</h4>
+                                    <p class="text-[11px] text-gray-500">Trained in basic entrepreneurship across the BARMM region.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-tmi-green text-white p-12 rounded-[3rem] shadow-2xl relative">
-                        <h3 class="text-2xl font-bold mb-6">Regional Footprint</h3>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm opacity-90">
-                            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Cotabato City (HQ)</li>
-                            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Basilan Satellite</li>
-                            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Sulu Satellite</li>
-                            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Tawi-Tawi Hub</li>
-                            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Marawi City</li>
-                            <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Maguindanao</li>
+                    <div class="bg-tmi-green text-white p-10 rounded-[2.5rem] relative shadow-xl overflow-hidden">
+                        <h3 class="text-2xl font-black mb-6">Regional Impact</h3>
+                        <ul class="grid grid-cols-2 gap-4 text-xs opacity-90">
+                            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Cotabato City</li>
+                            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Basilan</li>
+                            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Sulu</li>
+                            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Tawi-Tawi</li>
+                            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Marawi City</li>
+                            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Maguindanao</li>
                         </ul>
-                        <div class="mt-10 pt-10 border-t border-white/10">
-                            <p class="text-[10px] font-black uppercase tracking-[0.2em] mb-4">Milestones</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-white/10 px-3 py-1 rounded-full text-[9px] font-bold">20,000+ Scholars</span>
-                                <span class="bg-white/10 px-3 py-1 rounded-full text-[9px] font-bold">UNDP Research Partner</span>
-                                <span class="bg-white/10 px-3 py-1 rounded-full text-[9px] font-bold">ZEP 2030 Member</span>
-                            </div>
+                        <div class="mt-8 pt-8 border-t border-white/10">
+                            <p class="text-[10px] font-black uppercase tracking-widest mb-3 opacity-60">Global Goals</p>
+                            <p class="text-sm italic font-light">"Self-sufficient, disaster-ready, peaceful, and sustainable Bangsamoro communities."</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="page px-6 pb-20">
-            <div class="max-w-7xl mx-auto pt-16">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                    <div>
-                        <h2 class="text-5xl font-black text-tmi-green">Innovation Hub</h2>
-                        <p class="text-gray-500 mt-2">People-led solutions for sustainable development.</p>
-                    </div>
-                    <div class="flex bg-white p-1.5 rounded-2xl shadow-sm border border-gray-100">
-                        <button class="px-6 py-2 bg-tmi-green text-white rounded-xl text-xs font-bold uppercase tracking-widest">Ongoing</button>
-                        <button class="px-6 py-2 text-gray-400 rounded-xl text-xs font-bold uppercase tracking-widest hover:text-tmi-green transition">Completed</button>
-                    </div>
+        <!-- PROJECTS / INNOVATION HUB SECTION -->
+        <section id="projects" class="page px-4 md:px-6 pb-20">
+            <div class="max-w-7xl mx-auto pt-10">
+                <div class="mb-10 text-center lg:text-left">
+                    <h2 class="text-4xl md:text-5xl font-black text-tmi-green">Social Innovation Hub</h2>
+                    <p class="text-gray-500 mt-2">Pioneering development through specialized projects.</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Agri-Resilience Card -->
-                    <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all">
-                        <div class="h-64 bg-tmi-green relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200" alt="Agri" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-tmi-green via-transparent to-transparent"></div>
-                            <span class="absolute top-8 left-8 bg-tmi-gold text-tmi-green text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Resilience</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Agricultural Resilience -->
+                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all">
+                        <div class="h-48 bg-emerald-900 relative">
+                            <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800" alt="Agri-Resilience" class="w-full h-full object-cover opacity-60">
+                            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent"></div>
+                            <span class="absolute bottom-6 left-6 bg-tmi-gold text-tmi-green text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Agricultural Resilience</span>
                         </div>
-                        <div class="p-10">
-                            <h4 class="text-3xl font-black text-tmi-green mb-4">UPGRADE Program</h4>
-                            <p class="text-gray-500 leading-relaxed mb-6">Up-scaling group productivity through climate-smart operation planning and sustainable management across Mindanao barangays.</p>
-                            <div class="flex items-center gap-3 text-xs font-bold text-tmi-green bg-emerald-50 px-5 py-3 rounded-xl">
-                                <i data-lucide="check-circle" class="w-4 h-4"></i>
-                                <span>Sustainable Development Localization</span>
-                            </div>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-tmi-green mb-3">UPGRADE Program</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Scaling group productivity through sustainable techniques and climate-smart operation planning for farming communities.</p>
                         </div>
                     </div>
 
-                    <!-- Social Entrep Card -->
-                    <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all">
-                        <div class="h-64 bg-amber-900 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200" alt="Social Entrep" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-amber-950 via-transparent to-transparent"></div>
-                            <span class="absolute top-8 left-8 bg-emerald-600 text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Bangsamoro Brands</span>
+                    <!-- Innovation & Technology -->
+                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all">
+                        <div class="h-48 bg-blue-900 relative">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Innovation" class="w-full h-full object-cover opacity-60">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 to-transparent"></div>
+                            <span class="absolute bottom-6 left-6 bg-white text-blue-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Innovation & Technology</span>
                         </div>
-                        <div class="p-10">
-                            <h4 class="text-3xl font-black text-tmi-green mb-4">Women's Economic Empowerment</h4>
-                            <p class="text-gray-500 leading-relaxed mb-6">Empowering women-led and ex-combatant-led cooperatives in the Halal economic sector through social entrepreneurship.</p>
-                            <div class="flex gap-4">
-                                <div class="flex-1 bg-gray-50 p-4 rounded-2xl text-center">
-                                    <p class="text-xl font-black text-tmi-green">34+</p>
-                                    <p class="text-[9px] font-bold text-gray-400 uppercase">Active Cooperatives</p>
-                                </div>
-                                <div class="flex-1 bg-gray-50 p-4 rounded-2xl text-center">
-                                    <p class="text-xl font-black text-tmi-green">Halal</p>
-                                    <p class="text-[9px] font-bold text-gray-400 uppercase">Market Focus</p>
-                                </div>
-                            </div>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-tmi-green mb-3">Digital Peace Spaces</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Bridging technology gaps with people-led digital solutions to foster communication and risk management.</p>
+                        </div>
+                    </div>
+
+                    <!-- Environment & Sustainability -->
+                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all">
+                        <div class="h-48 bg-teal-900 relative">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800" alt="Environment" class="w-full h-full object-cover opacity-60">
+                            <div class="absolute inset-0 bg-gradient-to-t from-teal-950/80 to-transparent"></div>
+                            <span class="absolute bottom-6 left-6 bg-emerald-400 text-teal-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Environment</span>
+                        </div>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-tmi-green mb-3">Circular Economy Initiative</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Localized sustainable development goals focused on waste-to-resource transformation and eco-cooperatives.</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Entrepreneurship -->
+                    <div class="group bg-white rounded-[2rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all">
+                        <div class="h-48 bg-amber-900 relative">
+                            <img src="https://images.unsplash.com/photo-1556742031-c6968e8bc881?auto=format&fit=crop&q=80&w=800" alt="Social Entrep" class="w-full h-full object-cover opacity-60">
+                            <div class="absolute inset-0 bg-gradient-to-t from-amber-950/80 to-transparent"></div>
+                            <span class="absolute bottom-6 left-6 bg-tmi-gold text-tmi-green text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Social Entrepreneurship</span>
+                        </div>
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-tmi-green mb-3">Bangsamoro Brands</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Supporting 34+ women-led and ex-combatant-led cooperatives to thrive in the Halal economic sector.</p>
                         </div>
                     </div>
                 </div>
@@ -315,54 +336,33 @@
         </section>
 
         <!-- CONNECT SECTION -->
-        <section id="connect" class="page px-6 pb-20">
-            <div class="max-w-7xl mx-auto pt-16">
-                <div class="bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
-                    <div class="tmi-gradient lg:w-2/5 p-12 md:p-20 text-white flex flex-col justify-between">
-                        <div>
-                            <h2 class="text-4xl font-black mb-8 leading-tight">Collaborate<br>With Us</h2>
-                            <p class="text-emerald-50/60 mb-12">Building a sustainable and peaceful Mindanao through humanitarian partnership and innovative development.</p>
-                            
-                            <div class="space-y-8">
-                                <div class="flex items-center gap-6">
-                                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center"><i data-lucide="mail"></i></div>
-                                    <div>
-                                        <p class="text-[10px] font-black text-white/50 uppercase">Email Contact</p>
-                                        <p class="font-bold">executive@themoropreneur.com</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-6">
-                                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center"><i data-lucide="facebook"></i></div>
-                                    <div>
-                                        <p class="text-[10px] font-black text-white/50 uppercase">Follow Hub</p>
-                                        <p class="font-bold">@themoropreneur</p>
-                                    </div>
-                                </div>
+        <section id="connect" class="page px-4 md:px-6 pb-20">
+            <div class="max-w-7xl mx-auto pt-10">
+                <div class="bg-white rounded-[2.5rem] md:rounded-[4rem] shadow-2xl overflow-hidden flex flex-col lg:row lg:flex-row">
+                    <div class="tmi-gradient lg:w-2/5 p-10 md:p-16 text-white">
+                        <h2 class="text-3xl font-black mb-6">Let's Co-Create Impact</h2>
+                        <p class="text-emerald-50/70 text-sm mb-10">Partner with us for humanitarian and development projects across Mindanao.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                                <span class="text-xs font-bold">executive@themoropreneur.com</span>
                             </div>
-                        </div>
-                        <div class="mt-20 flex items-center gap-4">
-                            <span class="text-[9px] font-bold opacity-50 uppercase tracking-widest">Headquarters:</span>
-                            <span class="text-xs font-bold">Cotabato City, BARMM</span>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center"><i data-lucide="map" class="w-5 h-5"></i></div>
+                                <span class="text-xs font-bold">Cotabato City, BARMM</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="lg:w-3/5 p-12 md:p-20">
-                        <form class="space-y-6" onsubmit="event.preventDefault();">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Full Name</label>
-                                    <input type="text" class="w-full bg-gray-50 border-none rounded-2xl p-5 focus:ring-2 focus:ring-tmi-green outline-none">
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Organization</label>
-                                    <input type="text" class="w-full bg-gray-50 border-none rounded-2xl p-5 focus:ring-2 focus:ring-tmi-green outline-none">
-                                </div>
+                    <div class="lg:w-3/5 p-8 md:p-16">
+                        <form class="space-y-5" onsubmit="event.preventDefault();">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Your Name" class="w-full bg-gray-50 rounded-xl p-4 text-xs border-none focus:ring-2 focus:ring-tmi-green outline-none">
+                                <input type="text" placeholder="Organization" class="w-full bg-gray-50 rounded-xl p-4 text-xs border-none focus:ring-2 focus:ring-tmi-green outline-none">
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Message</label>
-                                <textarea rows="6" class="w-full bg-gray-50 border-none rounded-2xl p-5 focus:ring-2 focus:ring-tmi-green outline-none" placeholder="How can we co-create impact?"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-tmi-green text-white font-black py-6 rounded-[2rem] shadow-xl hover:bg-emerald-950 transition-all uppercase tracking-[0.2em] text-xs">Send Engagement Request</button>
+                            <textarea placeholder="Message" rows="4" class="w-full bg-gray-50 rounded-xl p-4 text-xs border-none focus:ring-2 focus:ring-tmi-green outline-none"></textarea>
+                            <button class="w-full bg-tmi-green text-white font-black py-4 rounded-xl text-[10px] uppercase tracking-widest shadow-lg active:scale-95 transition-all">Send Request</button>
                         </form>
                     </div>
                 </div>
@@ -370,29 +370,38 @@
         </section>
     </main>
 
-    <!-- Bottom Mobile Nav -->
-    <div class="lg:hidden fixed bottom-6 left-6 right-6 z-[100]">
-        <div class="glass-nav rounded-[2.5rem] border border-gray-100 shadow-2xl px-8 py-5 flex justify-between items-center">
-            <button onclick="navigateTo('home')" class="nav-mobile-btn text-tmi-green"><i data-lucide="home"></i></button>
-            <button onclick="navigateTo('mandate')" class="nav-mobile-btn text-gray-300"><i data-lucide="shield"></i></button>
-            <button onclick="navigateTo('projects')" class="nav-mobile-btn text-gray-300"><i data-lucide="layers"></i></button>
-            <button onclick="navigateTo('connect')" class="nav-mobile-btn text-gray-300"><i data-lucide="message-square"></i></button>
+    <!-- Bottom Mobile Nav (Mobile Only) -->
+    <div class="lg:hidden fixed bottom-4 left-4 right-4 z-[100]">
+        <div class="glass-nav rounded-2xl border border-gray-100 shadow-xl px-6 py-4 flex justify-between items-center">
+            <button onclick="navigateTo('home')" class="nav-mobile-btn text-tmi-green"><i data-lucide="home" class="w-5 h-5"></i></button>
+            <button onclick="navigateTo('mandate')" class="nav-mobile-btn text-gray-300"><i data-lucide="info" class="w-5 h-5"></i></button>
+            <button onclick="navigateTo('projects')" class="nav-mobile-btn text-gray-300"><i data-lucide="grid" class="w-5 h-5"></i></button>
+            <button onclick="navigateTo('connect')" class="nav-mobile-btn text-gray-300"><i data-lucide="message-circle" class="w-5 h-5"></i></button>
         </div>
     </div>
 
     <script>
+        // Initialize Lucide Icons
         lucide.createIcons();
 
+        // Page Navigation Logic
         function navigateTo(pageId) {
+            // Close mobile menu
             document.getElementById('mobile-menu').classList.add('opacity-0', 'pointer-events-none');
+            
+            // Hide all pages, show selected
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
 
+            // Update Desktop Nav UI
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('text-tmi-green');
-                if(link.innerText.toLowerCase() === pageId.toLowerCase()) link.classList.add('text-tmi-green');
+                if(link.innerText.toLowerCase().includes(pageId.toLowerCase().substring(0,4))) {
+                    link.classList.add('text-tmi-green');
+                }
             });
 
+            // Update Mobile Nav UI
             document.querySelectorAll('.nav-mobile-btn').forEach(btn => {
                 btn.classList.add('text-gray-300');
                 btn.classList.remove('text-tmi-green');
@@ -401,6 +410,7 @@
                 .find(b => b.getAttribute('onclick').includes(pageId));
             if(activeBtn) activeBtn.classList.add('text-tmi-green');
 
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -410,24 +420,42 @@
             menu.classList.toggle('pointer-events-none');
         }
 
-        // Handle PWA Install Display
+        // PWA Install Prompt handling
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            const btn = document.getElementById('install-btn');
-            btn.classList.remove('hidden');
-            btn.addEventListener('click', () => {
+            const installBtn = document.getElementById('install-btn');
+            installBtn.classList.remove('hidden');
+            
+            installBtn.addEventListener('click', () => {
                 deferredPrompt.prompt();
-                deferredPrompt = null;
-                btn.classList.add('hidden');
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        installBtn.classList.add('hidden');
+                    }
+                    deferredPrompt = null;
+                });
             });
         });
 
-        // Basic Service Worker handling without blob protocol
-        if ('serviceWorker' in navigator) {
-            console.log('Service Worker support detected.');
-        }
+        // SEO/Performance: Simple image lazy loading polyfill
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img"));
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
     </script>
 </body>
-</html>v
+</html>
