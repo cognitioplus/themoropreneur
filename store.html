@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop – The Moropreneur, Inc.</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+  <style>
+    :root {
+      --tmi-green: #1a5f23;
+      --tmi-gold: #d4af37;
+    }
+    .text-tmi-green { color: var(--tmi-green); }
+    .bg-tmi-green { background-color: var(--tmi-green); }
+    .border-tmi-green { border-color: var(--tmi-green); }
+    .text-tmi-gold { color: var(--tmi-gold); }
+    .bg-tmi-gold\/20 { background-color: color-mix(in srgb, var(--tmi-gold) 20%, white); }
+    .hover\:bg-tmi-gold:hover { background-color: var(--tmi-gold); }
+    .hover\:border-tmi-gold:hover { border-color: var(--tmi-gold); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <div class="max-w-7xl mx-auto pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+    <!-- Hero -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-black text-tmi-green mb-4">Shop with Purpose</h1>
+      <p class="text-sm text-gray-400 max-w-2xl mx-auto">
+        Support Bangsamoro women, youth, and ex-combatant artisans through ethical, locally made products.
+      </p>
+    </div>
+
+    <!-- Product Showcase -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <!-- Product 1: Halal Spices -->
+      <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors mb-4">
+            <i data-lucide="chef-hat" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-black text-lg mb-2">Bangsamoro Halal Spice Blends</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Handcrafted turmeric, curry, and sambal mixes—100% halal, organic, and sourced from BARMM farms.
+          </p>
+        </div>
+      </div>
+
+      <!-- Product 2: Woven Crafts -->
+      <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors mb-4">
+            <i data-lucide="package" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-black text-lg mb-2">Handwoven Bags & Mats</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Made by women’s cooperatives in Basilan and Sulu using traditional techniques and natural dyes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Product 3: Ready-to-Cook Kits -->
+      <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors mb-4">
+            <i data-lucide="utensils" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-black text-lg mb-2">Ready-to-Cook Meal Kits</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Includes premium pastil, tiyula itum, and beef rendang mixes—perfect for cultural sharing or gifting.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Order -->
+    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 text-center mb-12">
+      <h3 class="font-black text-tmi-green mb-3">How to Place an Order</h3>
+      <p class="text-xs text-gray-600 max-w-2xl mx-auto mb-4">
+        We accept bulk and retail inquiries via WhatsApp or email. All proceeds directly support livelihood programs for vulnerable Bangsamoro families.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="https://wa.me/639271720441" target="_blank" class="inline-flex items-center gap-2 bg-tmi-green text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
+        </a>
+        <a href="mailto:themoropreneur@gmail.com" class="inline-flex items-center gap-2 border border-tmi-green text-tmi-green px-5 py-2 rounded-full text-sm font-bold hover:bg-tmi-green hover:text-white transition">
+          <i data-lucide="mail" class="w-4 h-4"></i> Email Inquiry
+        </a>
+      </div>
+    </div>
+
+    <!-- Mission Reminder -->
+    <div class="text-center text-sm text-gray-600 max-w-3xl mx-auto">
+      <p>
+        Every purchase empowers a woman entrepreneur, a former combatant, or a youth scholar in BARMM. Thank you for walking with us in peace and resilience.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
