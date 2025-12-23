@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>The Moropreneur, Inc. | Social Innovation Hub</title>
+    <meta name="description" content="A humanitarian and development organization dedicated to self-sufficient and sustainable Bangsamoro communities.">
+    
+    <!-- Branding Assets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --tmi-green: #0b4a29;
+            --tmi-emerald: #156338;
+            --tmi-gold: #fcc419;
+            --tmi-sand: #fdfaf3;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--tmi-sand);
+            color: #1a2e23;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Multi-Page Simulation */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Branding Elements */
+        .tmi-gradient { background: linear-gradient(135deg, var(--tmi-green) 0%, var(--tmi-emerald) 100%); }
+        .text-tmi-green { color: var(--tmi-green); }
+        .bg-tmi-gold { background-color: var(--tmi-gold); }
+        
+        .nav-blur {
+            background: rgba(253, 250, 243, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .btn-fancy {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-fancy::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .btn-fancy:hover::after { height: 100%; }
+
+        .card-stat {
+            background: white;
+            border: 1px solid rgba(11, 74, 41, 0.05);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03);
+        }
+
+        /* Custom UI for PWA App-like feel */
+        @media (max-width: 1024px) {
+            .mobile-bottom-nav {
+                box-shadow: 0 -10px 25px -5px rgba(0,0,0,0.05);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Top Navigation (Desktop) -->
+    <nav class="fixed top-0 w-full z-[100] nav-blur border-b border-emerald-900/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="router.push('home')">
+                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1 border shadow-sm">
+                    <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108" alt="TMI" class="w-full h-full object-contain">
+                </div>
+                <div class="hidden md:block">
+                    <p class="text-sm font-extrabold text-tmi-green tracking-tight leading-none">The Moropreneur, Inc.</p>
+                    <p class="text-[8px] uppercase font-bold text-emerald-700/60 tracking-[0.15em] mt-1">Social Innovation Hub</p>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-10 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-900/60">
+                <button onclick="router.push('home')" class="nav-link transition-colors hover:text-tmi-green" data-page="home">Home</button>
+                <button onclick="router.push('about')" class="nav-link transition-colors hover:text-tmi-green" data-page="about">About Us</button>
+                <button onclick="router.push('services')" class="nav-link transition-colors hover:text-tmi-green" data-page="services">Services</button>
+                <button onclick="router.push('shop')" class="nav-link transition-colors hover:text-tmi-green" data-page="shop">Shop</button>
+                <button onclick="router.push('contact')" class="nav-link transition-colors hover:text-tmi-green" data-page="contact">Contact</button>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="pwa-install" class="hidden bg-tmi-green text-white text-[9px] font-black px-4 py-2 rounded-full tracking-widest flex items-center gap-2">
+                    <i data-lucide="download" class="w-3 h-3"></i> INSTALL APP
+                </button>
+                <button class="lg:hidden text-tmi-green" onclick="toggleMenu()">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Fullscreen Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[150] translate-x-full transition-transform duration-500 flex flex-col p-10">
+        <div class="flex justify-between items-center mb-16">
+            <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108" alt="TMI" class="w-12">
+            <button onclick="toggleMenu()"><i data-lucide="x" class="w-8 h-8 text-tmi-green"></i></button>
+        </div>
+        <div class="flex flex-col space-y-8">
+            <button onclick="router.push('home')" class="text-4xl font-black text-tmi-green text-left tracking-tighter">Home</button>
+            <button onclick="router.push('about')" class="text-4xl font-black text-tmi-green text-left tracking-tighter">About Us</button>
+            <button onclick="router.push('services')" class="text-4xl font-black text-tmi-green text-left tracking-tighter">Services</button>
+            <button onclick="router.push('shop')" class="text-4xl font-black text-tmi-green text-left tracking-tighter">Shop</button>
+            <button onclick="router.push('contact')" class="text-4xl font-black text-tmi-green text-left tracking-tighter">Contact</button>
+        </div>
+        <div class="mt-auto border-t pt-8">
+            <p class="text-xs font-bold text-emerald-800">SEC Reg: CN 201616423</p>
+            <p class="text-[10px] text-gray-400 mt-2">Empowering Mindanao Since 2015</p>
+        </div>
+    </div>
+
+    <!-- MAIN PAGE CONTAINER -->
+    <main class="pt-20 min-h-screen">
+        
+        <!-- PAGE: HOME -->
+        <section id="page-home" class="page active px-6 pb-24">
+            <div class="max-w-7xl mx-auto pt-6">
+                <div class="tmi-gradient rounded-[2.5rem] p-8 md:p-20 text-white relative overflow-hidden">
+                    <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full mb-8 backdrop-blur-md">
+                                <span class="w-2 h-2 bg-tmi-gold rounded-full animate-pulse"></span>
+                                <span class="text-[9px] font-black uppercase tracking-widest">Bridging Gaps, Building Peace</span>
+                            </div>
+                            <h1 class="text-5xl md:text-8xl font-black tracking-tight leading-[0.9] mb-8">
+                                Co-creating <br>
+                                <span class="text-tmi-gold italic font-serif font-normal">Self-Sufficient</span> <br>
+                                Communities.
+                            </h1>
+                            <p class="text-base md:text-xl text-emerald-50/80 leading-relaxed max-w-lg mb-10 font-light">
+                                From Marawi to Tawi-Tawi, we co-establish inclusive solutions that promote economic empowerment and social cohesion.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <button onclick="router.push('services')" class="bg-tmi-gold text-tmi-green font-black px-10 py-5 rounded-2xl shadow-xl hover:scale-105 transition-all text-[11px] uppercase tracking-widest btn-fancy">Our Impact</button>
+                                <button onclick="router.push('about')" class="bg-white/10 border border-white/20 text-white font-bold px-10 py-5 rounded-2xl hover:bg-white/20 transition-all text-[11px] uppercase tracking-widest">Our Story</button>
+                            </div>
+                        </div>
+                        <div class="hidden lg:flex justify-center">
+                            <div class="w-80 h-80 rounded-full border-4 border-white/20 p-4 bg-white/5 backdrop-blur-sm relative animate-float">
+                                <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-12 overflow-hidden shadow-2xl">
+                                    <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108" alt="Moropreneur Logo" class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative shapes -->
+                    <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-tmi-gold/10 rounded-full blur-3xl"></div>
+                </div>
+
+                <!-- Featured Stats -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+                    <div class="card-stat p-8 rounded-[2rem]">
+                        <div class="text-3xl font-black text-tmi-green mb-1">20K+</div>
+                        <div class="text-[9px] font-black uppercase tracking-widest text-emerald-700/60">Scholars Trained</div>
+                    </div>
+                    <div class="card-stat p-8 rounded-[2rem]">
+                        <div class="text-3xl font-black text-tmi-green mb-1">Low-Risk</div>
+                        <div class="text-[9px] font-black uppercase tracking-widest text-emerald-700/60">Audit Status</div>
+                    </div>
+                    <div class="card-stat p-8 rounded-[2rem]">
+                        <div class="text-3xl font-black text-tmi-green mb-1">8+</div>
+                        <div class="text-[9px] font-black uppercase tracking-widest text-emerald-700/60">Satellite Offices</div>
+                    </div>
+                    <div class="card-stat p-8 rounded-[2rem]">
+                        <div class="text-3xl font-black text-tmi-green mb-1">80+</div>
+                        <div class="text-[9px] font-black uppercase tracking-widest text-emerald-700/60">Empowered Coops</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: ABOUT -->
+        <section id="page-about" class="page px-6 pb-24">
+            <div class="max-w-5xl mx-auto pt-10">
+                <div class="flex flex-col md:flex-row gap-16 items-start">
+                    <div class="flex-1">
+                        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-tmi-gold mb-4 block">Since 2015</span>
+                        <h2 class="text-5xl font-black text-tmi-green tracking-tighter mb-8 leading-[0.9]">The Moropreneur Identity</h2>
+                        <div class="prose prose-emerald text-emerald-900/70 leading-relaxed space-y-6 text-sm md:text-base">
+                            <p>
+                                Registered with the **SEC (CN 201616423)**, we are a humanitarian and development organization that envisions self-sufficient, empowered, disaster-ready, and sustainable Bangsamoro communities.
+                            </p>
+                            <p>
+                                At TMI, we co-create sustainable solutions by empowering marginalized and vulnerable groups, fostering innovative people-led solutions, and bridging gaps in communication and technology.
+                            </p>
+                            <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
+                                <h4 class="text-xs font-black text-tmi-green uppercase tracking-widest mb-3">Institutional Excellence</h4>
+                                <p class="text-xs text-emerald-800/80 leading-relaxed italic">
+                                    "TMI is at par with international standards, as evident in its 'Low Risks' status in all external Audits and Micro-Audits commissioned by UN Women, UNDP, and Islamic Relief Philippines."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-80">
+                        <div class="card-stat p-8 rounded-[2.5rem] bg-tmi-green text-white">
+                            <h3 class="font-black text-xs uppercase tracking-widest mb-6 opacity-60">Regional Presence</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Basilan</li>
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Sulu</li>
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Tawi-Tawi</li>
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Marawi</li>
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Iligan City</li>
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Zamboanga</li>
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Maguindanao</li>
+                                <li class="flex items-center gap-3 text-sm font-bold"><i data-lucide="map-pin" class="w-4 h-4 text-tmi-gold"></i> Cotabato (HQ)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: SERVICES -->
+        <section id="page-services" class="page px-6 pb-24">
+            <div class="max-w-7xl mx-auto pt-10">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl font-black text-tmi-green tracking-tighter mb-4">ANGAT DAPAT Framework</h2>
+                    <p class="text-emerald-900/50 max-w-2xl mx-auto">Providing administrative, functional, and technical services to localize sustainable development goals across Mindanao.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="card-stat p-10 rounded-[3rem] group hover:bg-tmi-green transition-all duration-500">
+                        <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-8 text-tmi-green group-hover:bg-white/10 group-hover:text-tmi-gold transition-colors">
+                            <i data-lucide="heart" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-tmi-green mb-4 group-hover:text-white transition-colors">Humanitarian Support</h3>
+                        <p class="text-sm text-emerald-900/60 leading-relaxed group-hover:text-white/70 transition-colors">
+                            Bridging gaps during crises, as seen in Marawi. Establishing community-led peace spaces through our <strong>Bridging Khalifah</strong> sessions.
+                        </p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="card-stat p-10 rounded-[3rem] group hover:bg-tmi-green transition-all duration-500">
+                        <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-8 text-tmi-green group-hover:bg-white/10 group-hover:text-tmi-gold transition-colors">
+                            <i data-lucide="trending-up" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-tmi-green mb-4 group-hover:text-white transition-colors">Economic Agency</h3>
+                        <p class="text-sm text-emerald-900/60 leading-relaxed group-hover:text-white/70 transition-colors">
+                            Inspiring social enterprise in the BARMM and supporting CDA-registered women-led and ex-combatant-led cooperatives.
+                        </p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="card-stat p-10 rounded-[3rem] group hover:bg-tmi-green transition-all duration-500">
+                        <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-8 text-tmi-green group-hover:bg-white/10 group-hover:text-tmi-gold transition-colors">
+                            <i data-lucide="book-open" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-tmi-green mb-4 group-hover:text-white transition-colors">Policy Research</h3>
+                        <p class="text-sm text-emerald-900/60 leading-relaxed group-hover:text-white/70 transition-colors">
+                            Commissioned research for UNDP and Technical Writing for MBHTE-TESD Code of the Bangsamoro Education Code.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: SHOP -->
+        <section id="page-shop" class="page px-6 pb-24">
+            <div class="max-w-7xl mx-auto pt-10">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-5xl font-black text-tmi-green tracking-tighter mb-4 uppercase leading-none">Bangsamoro <br>Brands</h2>
+                        <p class="text-emerald-900/40 font-bold text-[10px] uppercase tracking-widest">Ethical Consumption. Local Impact.</p>
+                    </div>
+                    <div class="bg-tmi-gold px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest text-tmi-green">Inclusive Economy</div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product Category -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-[4/5] rounded-[2.5rem] bg-gray-200 overflow-hidden mb-6 relative shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Halal Delights">
+                            <div class="absolute inset-0 bg-gradient-to-t from-tmi-green/80 to-transparent"></div>
+                            <div class="absolute bottom-8 left-8">
+                                <p class="text-[9px] font-black text-tmi-gold uppercase tracking-widest mb-1">Authentic</p>
+                                <h3 class="text-xl font-black text-white">Halal Foods</h3>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 border-2 border-tmi-green/10 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-tmi-green hover:text-white transition-all">Explore Collection</button>
+                    </div>
+                    <!-- Product Category -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-[4/5] rounded-[2.5rem] bg-gray-200 overflow-hidden mb-6 relative shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1528459584353-5297db1a9c01?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Handicrafts">
+                            <div class="absolute inset-0 bg-gradient-to-t from-tmi-green/80 to-transparent"></div>
+                            <div class="absolute bottom-8 left-8">
+                                <p class="text-[9px] font-black text-tmi-gold uppercase tracking-widest mb-1">Woven</p>
+                                <h3 class="text-xl font-black text-white">Handicrafts</h3>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 border-2 border-tmi-green/10 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-tmi-green hover:text-white transition-all">Explore Collection</button>
+                    </div>
+                    <!-- Product Category -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-[4/5] rounded-[2.5rem] bg-gray-200 overflow-hidden mb-6 relative shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Sulu Coffee">
+                            <div class="absolute inset-0 bg-gradient-to-t from-tmi-green/80 to-transparent"></div>
+                            <div class="absolute bottom-8 left-8">
+                                <p class="text-[9px] font-black text-tmi-gold uppercase tracking-widest mb-1">Highland</p>
+                                <h3 class="text-xl font-black text-white">Sulu Coffee</h3>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 border-2 border-tmi-green/10 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-tmi-green hover:text-white transition-all">Explore Collection</button>
+                    </div>
+                    <!-- Product Category -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-[4/5] rounded-[2.5rem] bg-gray-200 overflow-hidden mb-6 relative shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1491336477066-31156b5e4f35?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Citizen Journalism">
+                            <div class="absolute inset-0 bg-gradient-to-t from-tmi-green/80 to-transparent"></div>
+                            <div class="absolute bottom-8 left-8">
+                                <p class="text-[9px] font-black text-tmi-gold uppercase tracking-widest mb-1">Advocacy</p>
+                                <h3 class="text-xl font-black text-white">Apparel</h3>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 border-2 border-tmi-green/10 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-tmi-green hover:text-white transition-all">Explore Collection</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: CONTACT -->
+        <section id="page-contact" class="page px-6 pb-24">
+            <div class="max-w-7xl mx-auto pt-10">
+                <div class="bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[650px] border border-emerald-900/5">
+                    <div class="tmi-gradient lg:w-2/5 p-16 text-white flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-5xl font-black mb-8 tracking-tighter leading-none">Reach Our <br>Headquarters.</h2>
+                            <p class="text-emerald-50/70 text-sm mb-16 leading-relaxed">Let's co-create self-sufficient and sustainable communities together. Connect with our technical pool today.</p>
+                            
+                            <div class="space-y-10">
+                                <div class="flex items-start gap-6">
+                                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5 text-tmi-gold"></i></div>
+                                    <div>
+                                        <p class="text-[10px] font-black uppercase tracking-widest opacity-40 mb-1">Office Address</p>
+                                        <p class="text-sm font-bold">2nd Floor, Dr. R. de Castro Bldg,<br>Sinsuat Ave, Cotabato City, 9600</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-6">
+                                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-5 h-5 text-tmi-gold"></i></div>
+                                    <div>
+                                        <p class="text-[10px] font-black uppercase tracking-widest opacity-40 mb-1">Email Inquiries</p>
+                                        <p class="text-sm font-bold">executive@themoropreneur.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-10 border-t border-white/10">
+                            <p class="text-[9px] font-bold uppercase tracking-[0.2em] opacity-30">SEC Registered CN 201616423</p>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-3/5 p-16 flex flex-col justify-center">
+                        <form class="space-y-8" onsubmit="event.preventDefault(); showSuccess();">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-3">
+                                    <label class="text-[10px] font-black text-tmi-green uppercase tracking-widest ml-1">Full Name</label>
+                                    <input type="text" placeholder="Dela Cruz, Juan" class="w-full bg-gray-50 rounded-2xl p-5 text-xs border border-gray-100 outline-none focus:ring-2 focus:ring-tmi-green transition-all">
+                                </div>
+                                <div class="space-y-3">
+                                    <label class="text-[10px] font-black text-tmi-green uppercase tracking-widest ml-1">Organization</label>
+                                    <input type="text" placeholder="Partnership entity" class="w-full bg-gray-50 rounded-2xl p-5 text-xs border border-gray-100 outline-none focus:ring-2 focus:ring-tmi-green transition-all">
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black text-tmi-green uppercase tracking-widest ml-1">Service Required</label>
+                                <select class="w-full bg-gray-50 rounded-2xl p-5 text-xs border border-gray-100 outline-none cursor-pointer appearance-none">
+                                    <option>Technical Consultancy</option>
+                                    <option>Administrative/Functional Services</option>
+                                    <option>Humanitarian Assistance</option>
+                                    <option>Bangsamoro Brands Order</option>
+                                </select>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black text-tmi-green uppercase tracking-widest ml-1">Message</label>
+                                <textarea rows="4" placeholder="How can we co-create impact?" class="w-full bg-gray-50 rounded-2xl p-5 text-xs border border-gray-100 outline-none focus:ring-2 focus:ring-tmi-green transition-all"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-tmi-green text-white font-black py-6 rounded-2xl text-[11px] uppercase tracking-[0.3em] shadow-xl hover:shadow-emerald-900/20 active:scale-[0.98] transition-all">
+                                Send Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <div class="lg:hidden fixed bottom-6 left-6 right-6 z-[100]">
+        <div class="mobile-bottom-nav nav-blur rounded-3xl border border-emerald-900/5 px-6 py-4 flex justify-between items-center">
+            <button onclick="router.push('home')" class="mobile-nav-link text-emerald-900/30 px-3" data-page="home"><i data-lucide="home" class="w-5 h-5"></i></button>
+            <button onclick="router.push('about')" class="mobile-nav-link text-emerald-900/30 px-3" data-page="about"><i data-lucide="info" class="w-5 h-5"></i></button>
+            <button onclick="router.push('services')" class="mobile-nav-link text-emerald-900/30 px-3" data-page="services"><i data-lucide="layers" class="w-5 h-5"></i></button>
+            <button onclick="router.push('shop')" class="mobile-nav-link text-emerald-900/30 px-3" data-page="shop"><i data-lucide="shopping-bag" class="w-5 h-5"></i></button>
+            <button onclick="router.push('contact')" class="mobile-nav-link text-emerald-900/30 px-3" data-page="contact"><i data-lucide="mail" class="w-5 h-5"></i></button>
+        </div>
+    </div>
+
+    <!-- Success Feedback Overlay -->
+    <div id="success-overlay" class="fixed inset-0 bg-tmi-green/95 z-[200] opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-10 text-center">
+        <div class="max-w-xs">
+            <div class="w-20 h-20 bg-tmi-gold rounded-full flex items-center justify-center mx-auto mb-6 text-tmi-green">
+                <i data-lucide="check" class="w-10 h-10 stroke-[4px]"></i>
+            </div>
+            <h3 class="text-white text-3xl font-black mb-4">Message Received</h3>
+            <p class="text-emerald-50/60 text-sm mb-8 leading-relaxed">Our technical pool will reach out to you within 24-48 business hours.</p>
+            <button onclick="hideSuccess()" class="bg-white text-tmi-green px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest">Return to App</button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Router Logic (Single-File Multi-Page Architecture)
+        const router = {
+            currentPage: 'home',
+            push: function(pageId) {
+                this.currentPage = pageId;
+                
+                // Close menu if open
+                document.getElementById('mobile-menu').classList.add('translate-x-full');
+
+                // Toggle Pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                const target = document.getElementById(`page-${pageId}`);
+                if (target) {
+                    target.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+
+                // Update UI Links
+                this.updateActiveLinks(pageId);
+            },
+            updateActiveLinks: function(pageId) {
+                // Desktop
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('text-tmi-green');
+                    if (link.dataset.page === pageId) link.classList.add('text-tmi-green');
+                });
+                // Mobile
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.classList.remove('text-tmi-green');
+                    if (link.dataset.page === pageId) link.classList.add('text-tmi-green');
+                });
+            }
+        };
+
+        // UI Handlers
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        function showSuccess() {
+            const overlay = document.getElementById('success-overlay');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function hideSuccess() {
+            const overlay = document.getElementById('success-overlay');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Initialize Home State
+        router.updateActiveLinks('home');
+
+        // PWA Install Handling
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const btn = document.getElementById('pwa-install');
+            btn.classList.remove('hidden');
+            btn.addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(() => { btn.classList.add('hidden'); });
+            });
+        });
+    </script>
+</body>
+</html>
