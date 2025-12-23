@@ -55,8 +55,8 @@
 
         /* Circular Logo Styling */
         .logo-circle {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 9999px;
             background: white;
             display: flex;
@@ -65,6 +65,7 @@
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border: 2px solid white;
+            flex-shrink: 0;
         }
 
         .hero-logo-circle {
@@ -106,8 +107,8 @@
                          alt="TMI" class="w-full h-full object-cover">
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-lg font-extrabold tracking-tighter text-tmi-green leading-none">TMI</span>
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-emerald-700 opacity-70">Mindanao</span>
+                    <span class="text-sm md:text-lg font-extrabold tracking-tighter text-tmi-green leading-none">The Moropreneur, Inc.</span>
+                    <span class="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-emerald-700 opacity-70">Humanitarian & Development</span>
                 </div>
             </div>
 
@@ -172,7 +173,7 @@
                             <div class="hero-logo-circle group hover:scale-105 transition-transform duration-500">
                                 <div class="w-full h-full rounded-full overflow-hidden bg-white shadow-inner">
                                     <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-1/351799080_1972683693082196_926030503090596927_n.png?stp=dst-png_s720x720&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=P67j4P733M8Q7kNvwFHptKR&_nc_oc=AdlDasD95JvyeXxVDflMHtsM2KbsW_CZ7wwTAPCkitFjpVjHu1W0SRd7WRqGMpyqFejF5YaXzm-jt2NYc4nZztB4&_nc_zt=24&_nc_ht=scontent.fceb2-1.fna&_nc_gid=OF6SrWFIk0zBI6xY9wasBA&oh=00_Aflu1_PAElp-SjdflhwHao3ERN7A5h4yZuceP2TEVEsmvg&oe=69502C79" 
-                                         alt="TMI Mindanao Logo" class="w-full h-full object-cover">
+                                         alt="The Moropreneur, Inc. Logo" class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
@@ -426,9 +427,7 @@
         // Basic Service Worker handling without blob protocol
         if ('serviceWorker' in navigator) {
             console.log('Service Worker support detected.');
-            // Note: Standard SW registration requires a physical .js file
-            // For this sandbox, we maintain the PWA manifest for App behavior
         }
     </script>
 </body>
-</html>
+</html>v
