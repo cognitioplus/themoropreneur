@@ -1,111 +1,165 @@
 <!DOCTYPE html>
-  <div class="max-w-6xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:px-8">
-    <!-- Mission & Vision Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-      <div>
-        <h2 class="text-4xl md:text-5xl font-black text-tmi-green leading-tight mb-6">Our Mission &<br>Framework</h2>
-        <p class="text-base text-gray-600 mb-8 leading-relaxed">
-          Established in 2015 and registered with the SEC (CN 201616423), <strong>The Moropreneur, Inc. (TMI)</strong> envisions “<em>self-sufficient, empowered, disaster-ready, peaceful, and sustainable Bangsamoro communities.</em>” 
-          We co-create this future by empowering marginalized individuals, families, and groups through innovative, people-led solutions that bridge gaps in communication, relationships, technology, and policy.
-        </p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – The Moropreneur, Inc.</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+  <style>
+    :root {
+      --tmi-green: #1a5f23;
+      --tmi-gold: #d4af37;
+    }
+    .text-tmi-green { color: var(--tmi-green); }
+    .bg-tmi-green { background-color: var(--tmi-green); }
+    .border-tmi-green { border-color: var(--tmi-green); }
+    .text-tmi-gold { color: var(--tmi-gold); }
+    .bg-tmi-gold\/20 { background-color: color-mix(in srgb, var(--tmi-gold) 20%, white); }
+    .hover\:bg-tmi-gold:hover { background-color: var(--tmi-gold); }
+    .hover\:border-tmi-gold:hover { border-color: var(--tmi-gold); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
 
-        <div class="space-y-4">
-          <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
-            <div class="w-10 h-10 bg-tmi-green text-white rounded-full flex items-center justify-center shrink-0">
-              <i data-lucide="award" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-tmi-green">Verified 'Low Risks' Status</h4>
-              <p class="text-[11px] text-gray-500">Validated by external audits from UN Women, UNDP, and Islamic Relief Philippines.</p>
-            </div>
+  <div class="max-w-7xl mx-auto pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-black text-tmi-green mb-4">About The Moropreneur, Inc.</h1>
+      <p class="text-sm text-gray-400 max-w-2xl mx-auto">
+        Co-creating self-sufficient, peaceful, and sustainable Bangsamoro communities since 2015.
+      </p>
+    </div>
+
+    <!-- Mission & Framework -->
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors">
+            <i data-lucide="goal" class="w-7 h-7"></i>
           </div>
-          <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
-            <div class="w-10 h-10 bg-tmi-gold text-tmi-green rounded-full flex items-center justify-center shrink-0">
-              <i data-lucide="check" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-tmi-green">20,000+ Scholars</h4>
-              <p class="text-[11px] text-gray-500">Trained in basic entrepreneurship across BARMM since 2017.</p>
-            </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Our Vision</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              “Self-sufficient, empowered, disaster-ready, peaceful, and sustainable Bangsamoro communities.”
+            </p>
           </div>
         </div>
       </div>
 
-      <div class="bg-tmi-green text-white p-10 rounded-[2.5rem] relative shadow-xl overflow-hidden">
-        <h3 class="text-2xl font-black mb-6">Regional Impact</h3>
-        <ul class="grid grid-cols-2 gap-4 text-xs opacity-90">
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Cotabato City</li>
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Basilan</li>
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Sulu</li>
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Tawi-Tawi</li>
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Marawi City</li>
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Maguindanao</li>
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Zamboanga</li>
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-tmi-gold"></i> Iligan City</li>
-        </ul>
-        <div class="mt-8 pt-8 border-t border-white/10">
-          <p class="text-[10px] font-black uppercase tracking-widest mb-3 opacity-60">Global Goals</p>
-          <p class="text-sm italic font-light">"Self-sufficient, disaster-ready, peaceful, and sustainable Bangsamoro communities."</p>
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors">
+            <i data-lucide="users" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Our Mission</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              To co-create self-sufficient communities by empowering marginalized individuals through innovative, people-led solutions that bridge gaps in communication, relationships, technology, and policy.
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Core Programs -->
     <div class="mb-16">
-      <h3 class="text-3xl font-black text-tmi-green text-center mb-10">Our Integrated Programs</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-          <h4 class="font-bold text-lg text-tmi-green mb-3">ANGAT DAPAT</h4>
-          <p class="text-sm text-gray-600 mb-4">
-            A holistic framework integrating 21 thematic areas—from climate adaptation and halal economy to peacebuilding and digitalization—designed to uplift conflict-affected and disaster-prone communities.
+      <h2 class="text-3xl font-black text-tmi-green text-center mb-10">Core Programs</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 group hover:border-tmi-green transition-colors">
+          <h4 class="font-bold text-tmi-green mb-2">ANGAT DAPAT</h4>
+          <p class="text-xs text-gray-600">
+            A holistic framework integrating 21 thematic areas—from climate action and halal economy to peacebuilding and digitalization.
           </p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-          <h4 class="font-bold text-lg text-tmi-green mb-3">UPGRADE</h4>
-          <p class="text-sm text-gray-600 mb-4">
-            Capacity-building program focused on leadership, organizational development, strategic planning, and values transformation—equipping individuals and institutions for effective, sustainable impact.
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 group hover:border-tmi-gold transition-colors">
+          <h4 class="font-bold text-tmi-green mb-2">UPGRADE</h4>
+          <p class="text-xs text-gray-600">
+            Capacity-building for individuals and organizations in leadership, strategic planning, and values transformation.
           </p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-          <h4 class="font-bold text-lg text-tmi-green mb-3">HARP</h4>
-          <p class="text-sm text-gray-600 mb-4">
-            Humanitarian and Resilience-building Program delivering rapid response during emergencies—food aid, MHPSS, livelihood support, and incident command systems in crisis zones like Marawi.
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 group hover:border-tmi-green transition-colors">
+          <h4 class="font-bold text-tmi-green mb-2">HARP</h4>
+          <p class="text-xs text-gray-600">
+            Humanitarian and Resilience-building Program delivering rapid response during emergencies—food, MHPSS, and livelihood support.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Affiliations & Recognition -->
-    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200">
-      <h3 class="text-2xl font-black text-tmi-green mb-6 text-center">Accreditation & Partnerships</h3>
-      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-        <li class="bg-white p-4 rounded-xl shadow-sm"><strong>Bangsamoro Economic Development Council (BEDC)</strong></li>
-        <li class="bg-white p-4 rounded-xl shadow-sm">NEDA Stakeholder Chamber</li>
-        <li class="bg-white p-4 rounded-xl shadow-sm">Zero Extreme Poverty 2030 Coalition</li>
-        <li class="bg-white p-4 rounded-xl shadow-sm">Philippine Social Enterprise Network</li>
-      </ul>
+    <!-- Impact & Recognition -->
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-gold transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-tmi-gold/20 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-gold transition-colors">
+            <i data-lucide="award" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Verified Low-Risk Organization</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Validated by external audits from UN Women, UNDP, and Islamic Relief Philippines.
+            </p>
+          </div>
+        </div>
+      </div>
 
-      <div class="mt-10">
-        <h4 class="font-bold text-tmi-green mb-3">Key Milestones</h4>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-600 list-disc pl-5">
-          <li>Published UNDP-commissioned research on Mindanao’s informal sector</li>
-          <li>Co-authored gender analysis for EU programs in Mindanao</li>
-          <li>Technical writer for the Bangsamoro Education Code</li>
-          <li>Launched the first <em>Mindanao Halal Food Culture Experience</em> with DOT</li>
-          <li>Supported normalization efforts for former MILF combatants</li>
-          <li>Co-established women- and ex-combatant-led cooperatives registered with CDA</li>
-          <li>Facilitated 63 youth-led SDG projects in partnership with UNDP, UNFPA, and ILO</li>
-          <li>Provided baseline and evaluation studies for WFP, EU, and national agencies</li>
-        </ul>
+      <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100 group hover:border-tmi-green transition-colors">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-emerald-100 rounded-2xl shrink-0 flex items-center justify-center text-tmi-green group-hover:bg-tmi-green group-hover:text-white transition-colors">
+            <i data-lucide="map-pin" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-lg mb-2">Regional Presence</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              Satellite offices in Basilan, Sulu, Tawi-Tawi, Marawi, Maguindanao, Zamboanga, Iligan City, and Cotabato City (Head Office).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Milestones -->
+    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 mb-16">
+      <h3 class="text-2xl font-black text-tmi-green text-center mb-6">Key Milestones</h3>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-600 list-disc pl-5">
+        <li>Trained 20,000+ scholars in entrepreneurship across BARMM</li>
+        <li>Co-authored UNDP & EU-commissioned research on Mindanao’s informal economy and gender</li>
+        <li>Technical writer for the Bangsamoro Education Code</li>
+        <li>Launched the first <em>Mindanao Halal Food Culture Experience</em> with DOT</li>
+        <li>Supported normalization efforts for former MILF combatants</li>
+        <li>Co-established CDA-registered women- and ex-combatant-led cooperatives</li>
+        <li>Facilitated 63 youth-led SDG projects with UNDP, UNFPA, and ILO</li>
+        <li>Provided humanitarian aid during the Marawi siege</li>
+      </ul>
+    </div>
+
+    <!-- Affiliations -->
+    <div class="text-center mb-12">
+      <h4 class="font-bold text-tmi-green mb-4">Accredited Member Of</h4>
+      <div class="flex flex-wrap justify-center gap-3 text-xs text-gray-600">
+        <span class="bg-white px-4 py-2 rounded-lg border">Bangsamoro Economic Development Council (BEDC)</span>
+        <span class="bg-white px-4 py-2 rounded-lg border">NEDA Stakeholder Chamber</span>
+        <span class="bg-white px-4 py-2 rounded-lg border">Zero Extreme Poverty 2030 Coalition</span>
+        <span class="bg-white px-4 py-2 rounded-lg border">Philippine Social Enterprise Network</span>
       </div>
     </div>
 
     <!-- Contact CTA -->
-    <div class="text-center mt-16">
-      <p class="text-gray-600 mb-4">To learn more about our work or explore collaboration opportunities:</p>
-      <a href="mailto:executive@themoropreneur.com" class="inline-block bg-tmi-green text-white px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition">Contact the Executive Director</a>
-      <p class="mt-3 text-sm text-gray-500">Mr. Selahuddin Yu Hashim | +63 927 172 0441</p>
+    <div class="text-center">
+      <p class="text-gray-600 mb-4">Learn more about our work or explore collaboration opportunities.</p>
+      <a href="mailto:executive@themoropreneur.com" class="inline-block bg-tmi-green text-white px-6 py-3 rounded-full font-bold hover:bg-opacity-90 transition">
+        Contact the Executive Director
+      </a>
+      <p class="mt-3 text-sm text-gray-500">
+        Mr. Selahuddin Yu Hashim | +63 927 172 0441
+      </p>
     </div>
   </div>
+
 </body>
 </html>
